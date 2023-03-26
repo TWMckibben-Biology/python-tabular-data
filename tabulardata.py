@@ -21,7 +21,7 @@ def data_plot(data, *argv):
         plt.scatter(dataframe.petal_length_cm, dataframe.sepal_length_cm)
         plt.xlabel("Petal length (cm)")
         plt.ylabel("Sepal length (cm)")
-        plt.savefig("petal_v_sepal_length.png")
+        plt.savefig("{}petal_v_sepal_length.png".format(arg))
         plt.clf()
 
 #Calculates regression slope and plots it using sepal and petal length
@@ -40,7 +40,7 @@ def regression_plot(data, *argv):
         plt.xlabel("Petal length (cm)")
         plt.ylabel("Sepal length (cm)")
         plt.legend()
-        plt.savefig("petal_v_sepal_length_regress.png")
+        plt.savefig("{}petal_v_sepal_length_regress.png".format(arg))
         plt.clf()
 
 #Set module
