@@ -1,16 +1,18 @@
 #! /usr/bin/env python3
 
+#Load all packages necessary for loading, manipulating, and plotting data
 import pandas as pd
 import sys
 import matplotlib.pyplot as plt
 import scipy
 from scipy import stats
 
+#Main function for script. Calls lower functions
 def data_regression_plot(data, *argv):
     data_plot(data, *argv)
     regression_plot(data, *argv)
 
-
+#Plots data and exports scatter plot of sepal and petal length
 def data_plot(data, *argv):
     dataframe=pd.read_csv(data)
 #Credit: Jamie Oaks, joaks1/python-tabular-data
@@ -21,6 +23,7 @@ def data_plot(data, *argv):
         plt.savefig("petal_v_sepal_length.png")
         plt.clf()
 
+#Calculates regression slope and plots it using sepal and petal length
 def regression_plot(data, *argv):
 #Credit: Jamie Oaks, joaks1/python-tabular-data
     dataframe = pd.read_csv(data)
@@ -36,5 +39,8 @@ def regression_plot(data, *argv):
         plt.ylabel("Sepal length (cm)")
         plt.legend()
         plt.savefig("petal_v_sepal_length_regress.png")
+        plt.clf()
 
-__name__=='__main__'
+#Set module
+if __name__=='__main__':
+    plot_all(*sys.argv)
