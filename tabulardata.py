@@ -1,8 +1,8 @@
 #! /usr/bin/env python3
 
 #Load all packages necessary for loading, manipulating, and plotting data
-import pandas as pd
 import sys
+import pandas as pd
 import matplotlib.pyplot as plt
 import scipy
 from scipy import stats
@@ -14,9 +14,10 @@ def data_regression_plot(data, *argv):
 
 #Plots data and exports scatter plot of sepal and petal length
 def data_plot(data, *argv):
-    dataframe=pd.read_csv(data)
+    dataframe = pd.read_csv(data)
 #Credit: Jamie Oaks, joaks1/python-tabular-data
     for arg in argv:
+        splitspecies_df = dataframe[dataframe.species == (arg)]
         plt.scatter(dataframe.petal_length_cm, dataframe.sepal_length_cm)
         plt.xlabel("Petal length (cm)")
         plt.ylabel("Sepal length (cm)")
@@ -28,8 +29,9 @@ def regression_plot(data, *argv):
 #Credit: Jamie Oaks, joaks1/python-tabular-data
     dataframe = pd.read_csv(data)
     for arg in argv:
-        x = dataframe.petal_length_cm
-        y = dataframe.sepal_length_cm
+        splitspecies_df = dataframe[dataframe.species == (arg)]
+        x = splitspecies_df.petal_length_cm
+        y = splitspecies_df.sepal_length_cm
         regression = stats.linregress(x, y)
         slope = regression.slope
         intercept = regression.intercept
@@ -43,4 +45,4 @@ def regression_plot(data, *argv):
 
 #Set module
 if __name__=='__main__':
-    plot_all(*sys.argv)
+    data_regression_plot(*sys.argv)
