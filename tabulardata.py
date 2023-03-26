@@ -13,7 +13,7 @@ def data_regression_plot(data, *argv):
 
 def data_plot(data, *argv):
 
-dataframe=pd.read_csv(data)
+    dataframe=pd.read_csv(data)
 
 #Credit: Jamie Oaks
 for arg in argv:
@@ -24,7 +24,7 @@ for arg in argv:
     plt.savefig("petal_v_sepal_length.png")
     plt.clf()
 
-def regression_plot(data, *argv)
+def regression_plot(data, *argv):
     dataframe = pd.read_csv(data)
     
 
