@@ -14,7 +14,7 @@ def data_regression_plot(data, *argv):
 
 #Plots data and exports scatter plot of sepal and petal length
 def data_plot(data, *argv):
-    dataframe = pd.read_csv(data)
+    dataframe = pd.read_csv('iris.csv')
 #Credit: Jamie Oaks, joaks1/python-tabular-data
     for arg in argv:
         splitspecies_df = dataframe[dataframe.species == (arg)]
@@ -27,7 +27,7 @@ def data_plot(data, *argv):
 #Calculates regression slope and plots it using sepal and petal length
 def regression_plot(data, *argv):
 #Credit: Jamie Oaks, joaks1/python-tabular-data
-    dataframe = pd.read_csv(data)
+    dataframe = pd.read_csv('iris.csv')
     for arg in argv:
         splitspecies_df = dataframe[dataframe.species == (arg)]
         x = splitspecies_df.petal_length_cm
@@ -44,5 +44,5 @@ def regression_plot(data, *argv):
         plt.clf()
 
 #Set module
-if __name__=='__main__':
+if __name__ == '__main__':
     data_regression_plot(*sys.argv)
